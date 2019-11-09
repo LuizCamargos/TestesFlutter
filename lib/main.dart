@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import './UI/CustomInputText.dart';
 
 void main() => runApp(TelaHome());
 
