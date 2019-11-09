@@ -19,7 +19,7 @@ class Scafold extends StatelessWidget {
     return new Container(
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
-      color: Colors.amber,
+      color: Color(0xff133984),
       child: Container(
         padding: const EdgeInsets.only(top: 30),
         child: Material(
@@ -27,28 +27,48 @@ class Scafold extends StatelessWidget {
             children: <Widget>[
               ListTile(
                 title: Text("Ar Condicionado"),
-                leading: Icon(Icons.accessibility_new),
+                leading: Image.asset(
+                  'assets/images/air_conditioner.png',
+                  height: 32,
+                  width: 32,
+                ),
                 onTap: () => print("Ar Condicionado"),
               ),
               ListTile(
                 title: Text("Projetor"),
-                leading: Icon(Icons.accessibility_new),
+                leading: Image.asset(
+                  'assets/images/projector.png',
+                  height: 32,
+                  width: 32,
+                ),
                 onTap: () => print("Projetor"),
               ),
               ListTile(
-                title: Text("Projetor"),
-                leading: Icon(Icons.accessibility_new),
-                onTap: () => print("Testando"),
+                title: Text("Computador"),
+                leading: Image.asset(
+                  'assets/images/computer.png',
+                  height: 32,
+                  width: 32,
+                ),
+                onTap: () => print("Computador"),
               ),
               ListTile(
-                title: Text("Projetor"),
-                leading: Icon(Icons.accessibility_new),
-                onTap: () => print("Projetor"),
+                title: Text("Som"),
+                leading: Image.asset(
+                  'assets/images/loudspeaker.png',
+                  height: 32,
+                  width: 32,
+                ),
+                onTap: () => print("Som"),
               ),
               ListTile(
-                title: Text("Projetor"),
-                leading: Icon(Icons.accessibility_new),
-                onTap: () => print("Projetor"),
+                title: Text("Impressora"),
+                leading: Image.asset(
+                  'assets/images/printer.png',
+                  height: 32,
+                  width: 32,
+                ),
+                onTap: () => print("Impressora"),
               ),
             ],
           ),
