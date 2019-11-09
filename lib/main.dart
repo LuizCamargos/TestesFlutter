@@ -13,14 +13,38 @@ class TelaHome extends StatelessWidget {
   }
 }
 
-class Scafold extends StatelessWidget {
+class Scafold extends StatefulWidget {
+  @override
+  _ScafoldState createState() => _ScafoldState();
+}
+
+class _ScafoldState extends State<Scafold> {
+  final GlobalKey<ScaffoldState> _scafoldkey = new GlobalKey<ScaffoldState>();
+  Color cor = Color(0xffF3F3F3);
+  String selecionado = "";
+
+  void setcor(String x) {
+    setState(() {
+      selecionado = x;
+      _showSnackBar();
+    });
+  }
+
+  _showSnackBar() {
+    print("Show snackbar here");
+    //inicializacao do snack bar
+    final snackBar = new SnackBar(
+      content: new Text("Selecionado $selecionado"),
+      duration: const Duration(milliseconds: 300),
+    );
+    _scafoldkey.currentState.showSnackBar(snackBar);
+  }
+
   @override
   Widget build(BuildContext context) {
-    return new Container(
-      height: MediaQuery.of(context).size.height,
-      width: MediaQuery.of(context).size.width,
-      color: Color(0xffF3F3F3),
-      child: Column(
+    return new Scaffold(
+      key: _scafoldkey,
+      body: Column(
         children: <Widget>[
           ClipRRect(
             borderRadius: BorderRadius.only(
@@ -36,8 +60,7 @@ class Scafold extends StatelessWidget {
             color: Color(0xffF3F3F3),
             padding: const EdgeInsets.only(top: 8),
             child: Material(
-              child: Wrap(
-                runSpacing: 2,
+              child: Column(
                 children: <Widget>[
                   ListTile(
                     title: Text(
@@ -49,7 +72,9 @@ class Scafold extends StatelessWidget {
                       height: 32,
                       width: 32,
                     ),
-                    onTap: () => print("Ar Condicionado"),
+                    onTap: () {
+                      setcor("Ar Condicionado");
+                    },
                   ),
                   ListTile(
                     title: Text(
@@ -61,7 +86,9 @@ class Scafold extends StatelessWidget {
                       height: 32,
                       width: 32,
                     ),
-                    onTap: () => print("Projetor"),
+                    onTap: () {
+                      setcor("Projetor");
+                    },
                   ),
                   ListTile(
                     title: Text(
@@ -73,7 +100,9 @@ class Scafold extends StatelessWidget {
                       height: 32,
                       width: 32,
                     ),
-                    onTap: () => print("Computador"),
+                    onTap: () {
+                      setcor("Computador");
+                    },
                   ),
                   ListTile(
                     title: Text(
@@ -85,7 +114,9 @@ class Scafold extends StatelessWidget {
                       height: 32,
                       width: 32,
                     ),
-                    onTap: () => print("Som"),
+                    onTap: () {
+                      setcor("Som");
+                    },
                   ),
                   ListTile(
                     title: Text(
@@ -97,8 +128,17 @@ class Scafold extends StatelessWidget {
                       height: 32,
                       width: 32,
                     ),
-                    onTap: () => print("Impressora"),
+                    onTap: () {
+                      setcor("Impressora");
+                    },
                   ),
+                  ListTile(
+                    leading: Icon(
+                      Icons.arrow_forward_ios,
+                    ),
+                    title: Text(selecionado),
+                    onTap: () => {},
+                  )
                 ],
               ),
             ),
@@ -138,84 +178,3 @@ class _BotaoTOPState extends State<BotaoTOP> {
     });
   }
 }
-
-/*
-class Scafold extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: AppBar(
-        elevation: 5,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.indigo),
-          onPressed: () => print("Icone Voltar"),
-        ),
-        title: Text(
-          "voltar",
-          textDirection: TextDirection.ltr,
-        ),
-      ),
-      floatingActionButton: BotaoTOP(),
-      body: new Center(
-        child: Column(
-          children: <Widget>[
-            ListTile(
-              leading: Icon(Icons.edit_attributes),
-              title: Text("ENTadfafadfadfafadAO"),
-              onTap: () => print("BT1"),
-            ),
-            ListTile(
-              leading: Icon(Icons.accessibility_new),
-              title: Text("SÇLDJFLA6FASDINkdaj"),
-              onTap: () => print("BT2"),
-            ),
-            Container(height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,)
-          ],
-        ),
-        
-      ),
-      
-    );
-  }
-}
-
-/*
-Botão Simples
-RaisedButton(
-              color: Colors.white,
-              elevation: 2,
-              onPressed: () => print("Botão Central"),
-              child: Text("Clique aqui"),
-            ),
-*/
-class BotaoTOP extends StatefulWidget {
-  @override
-  _BotaoTOPState createState() => _BotaoTOPState();
-}
-
-class _BotaoTOPState extends State<BotaoTOP> {
-  int primeiro = 1, segundo = 1, soma = 0;
-  @override
-  Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.all(Radius.circular(40)),
-      child: new RaisedButton(
-        elevation: 0.1,
-        child: Text(
-          'olá $soma',
-        ),
-        onPressed: fibonacci,
-      ),
-    );
-  }
-
-  void fibonacci() {
-    setState(() {
-      primeiro = segundo;
-      segundo = soma;
-      soma = primeiro + segundo;
-    });
-  }
-}
-*/
