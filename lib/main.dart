@@ -19,7 +19,7 @@ class Scafold extends StatelessWidget {
     return new Container(
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
-      color: Color(0xff133984),
+      color: Color(0xffF3F3F3),
       child: Column(
         children: <Widget>[
           ClipRRect(
@@ -28,11 +28,12 @@ class Scafold extends StatelessWidget {
               bottomRight: Radius.circular(15),
             ),
             child: Container(
+              color: Color(0xff133984),
               height: 70,
-              color: Colors.white,
             ),
           ),
           Container(
+            color: Color(0xffF3F3F3),
             padding: const EdgeInsets.only(top: 8),
             child: Material(
               child: Column(
