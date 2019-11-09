@@ -24,12 +24,12 @@ class Scafold extends StatelessWidget {
         children: <Widget>[
           ClipRRect(
             borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(15),
-              bottomRight: Radius.circular(15),
+              bottomLeft: Radius.circular(20),
+              bottomRight: Radius.circular(20),
             ),
             child: Container(
               color: Color(0xff133984),
-              height: 70,
+              height: 90,
             ),
           ),
           Container(
@@ -39,7 +39,10 @@ class Scafold extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   ListTile(
-                    title: Text("Ar Condicionado"),
+                    title: Text(
+                      "Ar Condicionado",
+                      style: TextStyle(color: Color(0xff8A8A8A)),
+                    ),
                     leading: Image.asset(
                       'assets/images/air_conditioner.png',
                       height: 32,
@@ -48,7 +51,10 @@ class Scafold extends StatelessWidget {
                     onTap: () => print("Ar Condicionado"),
                   ),
                   ListTile(
-                    title: Text("Projetor"),
+                    title: Text(
+                      "Projetor",
+                      style: TextStyle(color: Color(0xff8A8A8A)),
+                    ),
                     leading: Image.asset(
                       'assets/images/projector.png',
                       height: 32,
@@ -57,7 +63,10 @@ class Scafold extends StatelessWidget {
                     onTap: () => print("Projetor"),
                   ),
                   ListTile(
-                    title: Text("Computador"),
+                    title: Text(
+                      "Computador",
+                      style: TextStyle(color: Color(0xff8A8A8A)),
+                    ),
                     leading: Image.asset(
                       'assets/images/computer.png',
                       height: 32,
@@ -66,7 +75,10 @@ class Scafold extends StatelessWidget {
                     onTap: () => print("Computador"),
                   ),
                   ListTile(
-                    title: Text("Som"),
+                    title: Text(
+                      "Som",
+                      style: TextStyle(color: Color(0xff8A8A8A)),
+                    ),
                     leading: Image.asset(
                       'assets/images/loudspeaker.png',
                       height: 32,
@@ -75,7 +87,10 @@ class Scafold extends StatelessWidget {
                     onTap: () => print("Som"),
                   ),
                   ListTile(
-                    title: Text("Impressora"),
+                    title: Text(
+                      "Impressora",
+                      style: TextStyle(color: Color(0xff8A8A8A)),
+                    ),
                     leading: Image.asset(
                       'assets/images/printer.png',
                       height: 32,
