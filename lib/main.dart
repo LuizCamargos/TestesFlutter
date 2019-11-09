@@ -36,7 +36,8 @@ class Scafold extends StatelessWidget {
             color: Color(0xffF3F3F3),
             padding: const EdgeInsets.only(top: 8),
             child: Material(
-              child: Column(
+              child: Wrap(
+                runSpacing: 2,
                 children: <Widget>[
                   ListTile(
                     title: Text(
@@ -108,16 +109,6 @@ class Scafold extends StatelessWidget {
   }
 }
 
-/*
-
-Botão Simples
-RaisedButton(
-              color: Colors.white,
-              elevation: 2,
-              onPressed: () => print("Botão Central"),
-              child: Text("Clique aqui"),
-            ),
-*/
 class BotaoTOP extends StatefulWidget {
   @override
   _BotaoTOPState createState() => _BotaoTOPState();
