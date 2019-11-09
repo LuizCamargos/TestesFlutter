@@ -7,7 +7,6 @@ class TelaHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Dia 24/10",
-      debugShowCheckedModeBanner: false,
       home: Scafold(),
     );
   }
@@ -22,6 +21,7 @@ class _ScafoldState extends State<Scafold> {
   final GlobalKey<ScaffoldState> _scafoldkey = new GlobalKey<ScaffoldState>();
   Color cor = Color(0xffF3F3F3);
   String selecionado = "";
+  int primeiro = 1, segundo = 1, soma = 0;
 
   void setcor(String x) {
     setState(() {
@@ -30,12 +30,24 @@ class _ScafoldState extends State<Scafold> {
     });
   }
 
+  void fibonacci() {
+    setState(() {
+      primeiro = segundo;
+      segundo = soma;
+      soma = primeiro + segundo;
+    });
+  }
+
   _showSnackBar() {
-    print("Show snackbar here");
+    print("Show snackbar $selecionado");
     //inicializacao do snack bar
     final snackBar = new SnackBar(
       content: new Text("Selecionado $selecionado"),
-      duration: const Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 5000),
+      action: SnackBarAction(
+        label: "OK",
+        onPressed: () => {},
+      ),
     );
     _scafoldkey.currentState.showSnackBar(snackBar);
   }
@@ -48,12 +60,13 @@ class _ScafoldState extends State<Scafold> {
         children: <Widget>[
           ClipRRect(
             borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(20),
-              bottomRight: Radius.circular(20),
+              bottomLeft: Radius.circular(12),
+              bottomRight: Radius.circular(12),
             ),
             child: Container(
               color: Color(0xff133984),
-              height: 90,
+              height: 85,
+              width: MediaQuery.of(context).size.width,
             ),
           ),
           Container(
@@ -137,7 +150,6 @@ class _ScafoldState extends State<Scafold> {
                       Icons.arrow_forward_ios,
                     ),
                     title: Text(selecionado),
-                    onTap: () => {},
                   )
                 ],
               ),
@@ -146,35 +158,5 @@ class _ScafoldState extends State<Scafold> {
         ],
       ),
     );
-  }
-}
-
-class BotaoTOP extends StatefulWidget {
-  @override
-  _BotaoTOPState createState() => _BotaoTOPState();
-}
-
-class _BotaoTOPState extends State<BotaoTOP> {
-  int primeiro = 1, segundo = 1, soma = 0;
-  @override
-  Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.all(Radius.circular(40)),
-      child: new RaisedButton(
-        elevation: 0.1,
-        child: Text(
-          'olá $soma',
-        ),
-        onPressed: fibonacci,
-      ),
-    );
-  }
-
-  void fibonacci() {
-    setState(() {
-      primeiro = segundo;
-      segundo = soma;
-      soma = primeiro + segundo;
-    });
   }
 }
