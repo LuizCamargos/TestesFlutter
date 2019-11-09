@@ -20,59 +20,73 @@ class Scafold extends StatelessWidget {
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
       color: Color(0xff133984),
-      child: Container(
-        padding: const EdgeInsets.only(top: 30),
-        child: Material(
-          child: Column(
-            children: <Widget>[
-              ListTile(
-                title: Text("Ar Condicionado"),
-                leading: Image.asset(
-                  'assets/images/air_conditioner.png',
-                  height: 32,
-                  width: 32,
-                ),
-                onTap: () => print("Ar Condicionado"),
-              ),
-              ListTile(
-                title: Text("Projetor"),
-                leading: Image.asset(
-                  'assets/images/projector.png',
-                  height: 32,
-                  width: 32,
-                ),
-                onTap: () => print("Projetor"),
-              ),
-              ListTile(
-                title: Text("Computador"),
-                leading: Image.asset(
-                  'assets/images/computer.png',
-                  height: 32,
-                  width: 32,
-                ),
-                onTap: () => print("Computador"),
-              ),
-              ListTile(
-                title: Text("Som"),
-                leading: Image.asset(
-                  'assets/images/loudspeaker.png',
-                  height: 32,
-                  width: 32,
-                ),
-                onTap: () => print("Som"),
-              ),
-              ListTile(
-                title: Text("Impressora"),
-                leading: Image.asset(
-                  'assets/images/printer.png',
-                  height: 32,
-                  width: 32,
-                ),
-                onTap: () => print("Impressora"),
-              ),
-            ],
+      child: Column(
+        children: <Widget>[
+          ClipRRect(
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(15),
+              bottomRight: Radius.circular(15),
+            ),
+            child: Container(
+              height: 70,
+              color: Colors.white,
+            ),
           ),
-        ),
+          Container(
+            padding: const EdgeInsets.only(top: 8),
+            child: Material(
+              child: Column(
+                children: <Widget>[
+                  ListTile(
+                    title: Text("Ar Condicionado"),
+                    leading: Image.asset(
+                      'assets/images/air_conditioner.png',
+                      height: 32,
+                      width: 32,
+                    ),
+                    onTap: () => print("Ar Condicionado"),
+                  ),
+                  ListTile(
+                    title: Text("Projetor"),
+                    leading: Image.asset(
+                      'assets/images/projector.png',
+                      height: 32,
+                      width: 32,
+                    ),
+                    onTap: () => print("Projetor"),
+                  ),
+                  ListTile(
+                    title: Text("Computador"),
+                    leading: Image.asset(
+                      'assets/images/computer.png',
+                      height: 32,
+                      width: 32,
+                    ),
+                    onTap: () => print("Computador"),
+                  ),
+                  ListTile(
+                    title: Text("Som"),
+                    leading: Image.asset(
+                      'assets/images/loudspeaker.png',
+                      height: 32,
+                      width: 32,
+                    ),
+                    onTap: () => print("Som"),
+                  ),
+                  ListTile(
+                    title: Text("Impressora"),
+                    leading: Image.asset(
+                      'assets/images/printer.png',
+                      height: 32,
+                      width: 32,
+                    ),
+                    onTap: () => print("Impressora"),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
