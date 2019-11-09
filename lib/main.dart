@@ -6,8 +6,7 @@ class TelaHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Dia 24/10",
-      debugShowCheckedModeBanner: false,
+      title: "Testes Fluter",
       home: Scafold(),
     );
   }
@@ -31,7 +30,7 @@ class _ScafoldState extends State<Scafold> {
   }
 
   _showSnackBar() {
-    print("Show snackbar here");
+    print("Show snackbar $selecionado");
     //inicializacao do snack bar
     final snackBar = new SnackBar(
       content: new Text("Selecionado $selecionado"),
