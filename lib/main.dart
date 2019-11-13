@@ -28,11 +28,7 @@ class _ScafoldState extends State<Scafold> {
 
   Future _incrementCounter() async {
     _counter =
-        await FlutterBarcodeScanner.scanBarcode("#000", "Cancelar", true);
-    setValue();
-  }
-
-  void setValue() {
+        await FlutterBarcodeScanner.scanBarcode("#ffffff", "Cancelar", true);
     setState(() {
       _value = _counter;
     });
@@ -166,7 +162,7 @@ class _ScafoldState extends State<Scafold> {
                     leading: Icon(
                       Icons.arrow_forward_ios,
                     ),
-                    title: Text(selecionado),
+                    title: Text(_value),
                   )
                 ],
               ),
@@ -178,7 +174,7 @@ class _ScafoldState extends State<Scafold> {
         elevation: 0,
         label: Text("Scan QR"),
         icon: Icon(Icons.camera_alt),
-        onPressed: () => _incrementCounter(),
+        onPressed: _incrementCounter,
       ),
     );
   }
