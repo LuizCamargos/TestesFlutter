@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+import 'Pages/DetailProblemScreen.dart';
 
 void main() => runApp(TelaHome());
 
@@ -31,6 +32,9 @@ class _ScafoldState extends State<Scafold> {
         await FlutterBarcodeScanner.scanBarcode("#F3F3F3", "Cancelar", true);
     setState(() {
       _value = _counter;
+      //TODO, abrir uma tela aqui, logo depois que sair da seleção da sala
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => DetailScreen()));
     });
   }
 
