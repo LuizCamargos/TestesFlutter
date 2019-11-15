@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Pages/HomeScreen.dart';
 
 void main() => runApp(MainScreen());
 
@@ -6,6 +7,7 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: "24/10",
       home: MainScreenUI(),
       color: Color(0xffF3F3F3),
       debugShowCheckedModeBanner: false,
@@ -23,7 +25,7 @@ class _MainScreenUIState extends State<MainScreenUI> {
 
   void _setUnidade(String unidade) {
     unidadeUnisal = unidade;
-    print(unidadeUnisal);
+    (unidadeUnisal == "SJ") ? print("is SJ") : print("is Liceu");
   }
 
   @override

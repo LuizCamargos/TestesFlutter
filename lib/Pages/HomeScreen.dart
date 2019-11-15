@@ -6,7 +6,6 @@ class TelaHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Dia 24/10",
       home: Scafold(),
     );
   }
