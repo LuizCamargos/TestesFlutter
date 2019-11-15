@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'DetailProblemScreen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class TelaHome extends StatelessWidget {
   @override
@@ -33,6 +34,12 @@ class _ScafoldState extends State<Scafold> {
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => DetailScreen()));
     });
+  }
+
+  //Ler dados doShared Preferences
+  getStringInShared() async {
+    SharedPreferences mShared = await SharedPreferences.getInstance();
+    String Unidade = mShared.getString('unidadeUnisal');
   }
 
   void setcor(String x) {

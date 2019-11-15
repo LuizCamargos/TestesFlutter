@@ -41,12 +41,6 @@ class _MainScreenUIState extends State<MainScreenUI> {
     mShared.setString('unidadeUnisal', unidadeUnisal);
   }
 
-  //Ler dados doShared Preferences
-  getStringInShared() async {
-    SharedPreferences mShared = await SharedPreferences.getInstance();
-    String Unidade = mShared.getString('unidadeUnisal');
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
