@@ -8,9 +8,13 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "24/10",
-      home: MainScreenUI(),
       color: Color(0xffF3F3F3),
       debugShowCheckedModeBanner: false,
+      initialRoute: '/',
+      routes: {
+        '/': (context) => MainScreenUI(),
+        '/homescreen': (context) => TelaHome(),
+      },
     );
   }
 }
@@ -25,7 +29,9 @@ class _MainScreenUIState extends State<MainScreenUI> {
 
   void _setUnidade(String unidade) {
     unidadeUnisal = unidade;
-    (unidadeUnisal == "SJ") ? print("is SJ") : print("is Liceu");
+    (unidadeUnisal == "SJ")
+        ? Navigator.pushNamed(context, '/homescreen')
+        : Navigator.pushNamed(context, '/homescreen');
   }
 
   @override
