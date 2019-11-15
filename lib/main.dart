@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Pages/HomeScreen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() => runApp(MainScreen());
 
@@ -32,6 +33,18 @@ class _MainScreenUIState extends State<MainScreenUI> {
     (unidadeUnisal == "SJ")
         ? Navigator.pushNamed(context, '/homescreen')
         : Navigator.pushNamed(context, '/homescreen');
+  }
+
+  // Salvar dados no Shared Preferences
+  saveStringToShared() async {
+    SharedPreferences mShared = await SharedPreferences.getInstance();
+    mShared.setString('unidadeUnisal', unidadeUnisal);
+  }
+
+  //Ler dados doShared Preferences
+  getStringInShared() async {
+    SharedPreferences mShared = await SharedPreferences.getInstance();
+    String Unidade = mShared.getString('unidadeUnisal');
   }
 
   @override
