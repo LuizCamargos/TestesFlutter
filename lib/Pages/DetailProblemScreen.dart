@@ -45,10 +45,18 @@ class _telaScreenState extends State<telaScreen> {
               width: 32,
             ),
           ),
-          TextField(
-            controller: _textcontroller,
-            decoration: InputDecoration(hintText: "digite um comentário"),
-            maxLines: 4,
+          Padding(
+            padding: const EdgeInsets.all(30.0),
+            child: TextFormField(
+              controller: _textcontroller,
+              autofocus: false,
+              decoration: InputDecoration(
+                  hintText: "digite um comentário",
+                  contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10))),
+              maxLines: 4,
+            ),
           ),
         ],
       ),
