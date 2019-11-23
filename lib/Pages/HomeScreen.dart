@@ -31,8 +31,9 @@ class _ScafoldState extends State<Scafold> {
     setState(() {
       _value = _counter;
       //TODO, abrir uma tela aqui, logo depois que sair da seleção da sala
-      Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => DetailScreen()));
+      Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => DetailScreen(),
+      ));
     });
   }
 
@@ -40,6 +41,7 @@ class _ScafoldState extends State<Scafold> {
   getStringInShared() async {
     SharedPreferences mShared = await SharedPreferences.getInstance();
     String Unidade = mShared.getString('unidadeUnisal');
+    print(Unidade);
   }
 
   void setcor(String x) {
@@ -67,7 +69,7 @@ class _ScafoldState extends State<Scafold> {
       elevation: 1,
       action: SnackBarAction(
         label: "OK",
-        onPressed: () => {},
+        onPressed: () => getStringInShared(),
       ),
     );
     _scafoldkey.currentState.showSnackBar(snackBar);
