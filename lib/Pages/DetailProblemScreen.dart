@@ -36,25 +36,31 @@ class _telaScreenState extends State<telaScreen> {
           ),
           ListTile(
             title: Text(
-              "Impressora",
+              "Ar Condicionado",
               style: TextStyle(color: Color(0xff8A8A8A)),
             ),
             leading: Image.asset(
-              'assets/images/printer.png',
-              height: 32,
-              width: 32,
+              'assets/images/air_conditioner.png',
+              height: 36,
+              width: 36,
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(30.0),
+            padding: const EdgeInsets.all(8.0),
             child: TextFormField(
               controller: _textcontroller,
               autofocus: false,
               decoration: InputDecoration(
                   hintText: "digite um comentário",
+                  hintStyle: TextStyle(
+                    color: Color(0xff545454),
+                  ),
                   contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                  fillColor: Colors.white,
+                  filled: true,
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10))),
+                    borderRadius: BorderRadius.circular(10),
+                  )),
               maxLines: 4,
             ),
           ),
