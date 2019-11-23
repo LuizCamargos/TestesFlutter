@@ -75,7 +75,16 @@ class _telaScreenState extends State<telaScreen> {
               ),
         ),
         icon: Icon(Icons.check),
-        onPressed: () => print("Text: ${_textcontroller.text}"),
+        onPressed: () {
+          Map requisicao = {
+            'Local': "Sala 01",
+            'Categoria': "AR CONDICIONADO",
+            'Detalhes': 'está muito quente aqui',
+            'HoraAtual': "1574529362",
+            'Solucionado': "",
+            'TempoConclusao': "",
+          };
+        },
       ),
     );
   }
