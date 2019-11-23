@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'Pages/HomeScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'Pages/DetailProblemScreen.dart';
 
 void main() => runApp(MainScreen());
 
@@ -15,6 +16,7 @@ class MainScreen extends StatelessWidget {
       routes: {
         '/': (context) => MainScreenUI(),
         '/homescreen': (context) => TelaHome(),
+        '/detailscreen': (context) => DetailScreen(),
       },
     );
   }
@@ -32,13 +34,14 @@ class _MainScreenUIState extends State<MainScreenUI> {
     unidadeUnisal = unidade;
     (unidadeUnisal == "SJ")
         ? Navigator.pushNamed(context, '/homescreen')
-        : Navigator.pushNamed(context, '/homescreen');
+        : Navigator.pushNamed(context, '/detailscreen');
   }
 
   // Salvar dados no Shared Preferences
-  saveStringToShared() async {
+  Future<bool> saveStringToShared() async {
     SharedPreferences mShared = await SharedPreferences.getInstance();
     mShared.setString('unidadeUnisal', unidadeUnisal);
+    return mShared.commit();
   }
 
   @override

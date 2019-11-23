@@ -23,13 +23,13 @@ class _ScafoldState extends State<Scafold> {
   String selecionado = "";
   int primeiro = 1, segundo = 1, soma = 0;
 
-  String _counter, _value = "";
+  String valueQR, _value = "";
 
   Future _incrementCounter() async {
-    _counter =
+    valueQR =
         await FlutterBarcodeScanner.scanBarcode("#F3F3F3", "Cancelar", true);
     setState(() {
-      _value = _counter;
+      _value = valueQR;
       //TODO, abrir uma tela aqui, logo depois que sair da seleção da sala
       Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => DetailScreen(),

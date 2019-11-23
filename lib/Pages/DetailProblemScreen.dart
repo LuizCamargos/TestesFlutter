@@ -9,7 +9,14 @@ class DetailScreen extends StatelessWidget {
   }
 }
 
-class telaScreen extends StatelessWidget {
+class telaScreen extends StatefulWidget {
+  @override
+  _telaScreenState createState() => _telaScreenState();
+}
+
+class _telaScreenState extends State<telaScreen> {
+  final _textcontroller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,29 +34,41 @@ class telaScreen extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
             ),
           ),
-          Chip(
-            label: Text(
-              "Temperatura",
-              style: TextStyle(color: Color(0xff4D4D4D)),
+          ListTile(
+            title: Text(
+              "Impressora",
+              style: TextStyle(color: Color(0xff8A8A8A)),
             ),
-            backgroundColor: Color(0xffFFFFFF),
+            leading: Image.asset(
+              'assets/images/printer.png',
+              height: 32,
+              width: 32,
+            ),
           ),
-          Chip(
-            label: Text(
-              "Temperatura",
-              style: TextStyle(color: Color(0xff4D4D4D)),
-            ),
-            backgroundColor: Color(0xffFFFFFF),
-          ),
-          Chip(
-            label: Text(
-              "Temperatura",
-              style: TextStyle(color: Color(0xff4D4D4D)),
-            ),
-            backgroundColor: Color(0xffFFFFFF),
+          TextField(
+            controller: _textcontroller,
+            decoration: InputDecoration(hintText: "digite um comentário"),
+            maxLines: 4,
           ),
         ],
       ),
+      floatingActionButton: FloatingActionButton.extended(
+        elevation: 2,
+        label: Text(
+          "Confirmar",
+          style: TextStyle(
+              //color: Color(0xff8A8A8A),
+              ),
+        ),
+        icon: Icon(Icons.check),
+        onPressed: () => print("Text: ${_textcontroller.text}"),
+      ),
     );
+  }
+
+  @override
+  void dispose() {
+    _textcontroller.dispose();
+    super.dispose();
   }
 }
